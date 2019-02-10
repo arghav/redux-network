@@ -8,51 +8,40 @@
 
 # Usage
 
-```
-// @flow
-import { applyMiddleware, compose, createStore, type Store } from 'redux';
-import loggerMiddleware from 'redux-logger';
-import type { FluxStandardAction } from 'flux-standard-action';
+To enable Redux Network, use `applyMiddleware()`
 
-import networkMiddleware from 'redux-network';
+```js
+import { createStore, applyMiddleware } from 'redux';
+import network from 'redux-network';
+import rootReducer from './reducers/index';
 
-import rootReducer from './reducers';
-import type { State } from './types';
-
-export default function configureStore(preloadedState?: State) {
-  const middlewares = [networkMiddleware];
-  if (process.env.NODE_ENV === 'development') {
-    middlewares.push(loggerMiddleware);
-  }
-
-  const middlewareEnhancer = applyMiddleware(...middlewares);
-
-  const enhancers = [middlewareEnhancer];
-
-  const composedEnhancers = compose(...enhancers);
-
-  const store: Store<State, FluxStandardAction<string, any, any>> =
-    createStore(rootReducer, preloadedState, composedEnhancers);
-
-  return store;
-}
+// Note: this API requires redux@>=3.1.0
+const store = createStore(
+  rootReducer,
+  applyMiddleware(network)
+);
 ```
 
-Once setup any action that contains an instance of `Request` object as the `payload` will be managed by the network middleware.
+Once setup any redux action that is dispatched with an instance of `Request` object as the `payload` will be intercepted by the network middleware.
 
-```
+The network middleware also supports optional thunks `onRequest`, `onResponse` and `onError`. These can be used to either compute the response body or dispatch other actions if required.
+
+```js
   fetchDataRequest: (): FetchDataRequestAction => ({
     type: ActionTypes.FETCH_DATA_REQUEST,
-    payload: new Request(API_URL),
+    payload: new Request("https://api.github.com/search/repositories?q=react"),
     meta: {
-      onResponse: async (response: Response, dispatch: Dispatch) => {
+      onRequest: (request, dispatch) => {
+        // dispatch actions if needed
+      },
+      onResponse: async (response, dispatch) => {
         if (response.ok) {
           const payload = await response.json();
 
           dispatch(actionCreators.fetchDataSuccess(payload));
         }
       },
-      onError: (error: Error, dispatch: Dispatch) => {
+      onError: (error, dispatch) => {
         dispatch(actionCreators.fetchDataError(error));
       },
     },
