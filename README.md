@@ -6,7 +6,7 @@ Network [middleware](https://redux.js.org/advanced/middleware) for redux.
 
 ## Installation
 
-`npm install redux-network`
+`npm install redux-network-fetch`
 
 ## Usage
 
@@ -14,7 +14,7 @@ To enable Redux Network, use [`applyMiddleware()`](https://redux.js.org/api-refe
 
 ```js
 import { createStore, applyMiddleware } from 'redux';
-import network from 'redux-network';
+import network from 'redux-network-fetch';
 import rootReducer from './reducers/index';
 
 // Note: this API requires redux@>=3.1.0

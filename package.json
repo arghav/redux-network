@@ -1,5 +1,5 @@
 {
-  "name": "redux-network",
+  "name": "redux-network-fetch",
   "version": "0.0.1",
   "description": "redux network middleware",
   "main": "./lib/index.js",
