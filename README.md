@@ -10,7 +10,7 @@ Network [middleware](https://redux.js.org/advanced/middleware) for redux.
 
 ## Usage
 
-To enable Redux Network, use `applyMiddleware()`
+To enable Redux Network, use [`applyMiddleware()`](https://redux.js.org/api-reference/applymiddleware):
 
 ```js
 import { createStore, applyMiddleware } from 'redux';
