@@ -1,12 +1,14 @@
-# Redux Network Middleware
+## Redux Network Middleware
 
 [![Build Status](https://travis-ci.org/arghav/redux-network.svg?branch=master)](https://travis-ci.org/arghav/redux-network) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-# Installation
+Network [middleware](https://redux.js.org/advanced/middleware) for redux.
+
+## Installation
 
 `npm install redux-network`
 
-# Usage
+## Usage
 
 To enable Redux Network, use `applyMiddleware()`
 
@@ -27,7 +29,7 @@ Once setup any redux action that is dispatched with an instance of `Request` obj
 The network middleware also supports optional thunks `onRequest`, `onResponse` and `onError`. These can be used to either compute the response body or dispatch other actions if required.
 
 ```js
-  fetchDataRequest: (): FetchDataRequestAction => ({
+  fetchDataRequest: () => ({
     type: ActionTypes.FETCH_DATA_REQUEST,
     payload: new Request("https://api.github.com/search/repositories?q=react"),
     meta: {
@@ -48,6 +50,6 @@ The network middleware also supports optional thunks `onRequest`, `onResponse` a
   }),
 ```
 
-# License
+## License
 
-MIT © Amal Raghav
+MIT
