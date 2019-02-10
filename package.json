@@ -24,11 +24,10 @@
     "url": "git+https://github.com/arghav/redux-network.git"
   },
   "keywords": [
-    "boilerplate",
-    "npm",
-    "module",
-    "node",
-    "javascript"
+    "redux",
+    "middleware",
+    "network",
+    "fetch"
   ],
   "author": "Amal Raghav <amal.raghav@gmail.com>",
   "license": "MIT",
