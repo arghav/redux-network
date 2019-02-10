@@ -23,4 +23,4 @@ const networkMiddleware = ({ dispatch }) => next => (action) => {
   return next(action);
 };
 
-export default networkMiddleware();
+export default networkMiddleware;
