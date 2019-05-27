@@ -1,6 +1,6 @@
 {
   "name": "redux-network-fetch",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "redux network middleware using Fetch API",
   "main": "./lib/index.js",
   "scripts": {
