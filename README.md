@@ -30,7 +30,7 @@ The network middleware also supports optional thunks `onRequest`, `onResponse` a
 
 ```js
   fetchDataRequest: () => ({
-    type: ActionTypes.FETCH_DATA_REQUEST,
+    type: "FETCH_DATA_REQUEST",
     payload: new Request("https://api.github.com/search/repositories?q=react"),
     meta: {
       onRequest: (request, dispatch) => {
