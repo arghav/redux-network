@@ -31,8 +31,9 @@ describe('network middleware', () => {
         };
 
         global.fetch = request => {
+          assert.instanceOf(request, Request);
           assert.strictEqual(request, actionObj.payload);
-          return Promise.resolve();
+          done();
         }
 
         const actionHandler = nextHandler(action => {
@@ -40,7 +41,6 @@ describe('network middleware', () => {
         });
 
         actionHandler(actionObj);
-        done();
       });
     });
   });
