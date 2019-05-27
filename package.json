@@ -1,7 +1,7 @@
 {
   "name": "redux-network-fetch",
-  "version": "0.0.1",
-  "description": "redux network middleware",
+  "version": "0.0.2",
+  "description": "redux network middleware using Fetch API",
   "main": "./lib/index.js",
   "scripts": {
     "clean": "rimraf lib",
@@ -21,7 +21,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/arghav/redux-network.git"
+    "url": "git+https://github.com/arghav/redux-network-fetch.git"
   },
   "keywords": [
     "redux",
@@ -32,9 +32,9 @@
   "author": "Amal Raghav <amal.raghav@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/arghav/redux-network/issues"
+    "url": "https://github.com/arghav/redux-network-fetch/issues"
   },
-  "homepage": "https://github.com/arghav/redux-network#readme",
+  "homepage": "https://github.com/arghav/redux-network-fetch#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.1",
