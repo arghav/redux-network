@@ -24,9 +24,9 @@ const store = createStore(
 );
 ```
 
-Once setup any redux action that is dispatched with an instance of `Request` object as the `payload` will be intercepted by the network middleware.
+Once setup, any redux action that is dispatched with an instance of `Request` object as the `payload` will be intercepted by the network middleware.
 
-The network middleware also supports optional thunks `onRequest`, `onResponse` and `onError`. These can be used to either compute the response body or dispatch other actions if required.
+The network middleware also supports optional thunks `onRequest`, `onResponse` and `onError`. These can be used to either compute with the response body or dispatch other actions if needed.
 
 ```js
   fetchDataRequest: () => ({
